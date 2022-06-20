@@ -1,7 +1,7 @@
 <script lang="ts">
   import HeicFileDrop from "./lib/HeicFileDrop.svelte";
   import heic2any from "heic2any";
-  import JSZip from "JSZip";
+  import JSZip from "jszip";
   import DownloadBtn from "./lib/DownloadBtn.svelte";
   import Loading from "./lib/Loading.svelte";
   import { totalFiles, processedFiles, progress } from './lib/stores';
