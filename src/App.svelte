@@ -5,7 +5,6 @@
   import DownloadBtn from "./lib/DownloadBtn.svelte";
   import Loading from "./lib/Loading.svelte";
   import { totalFiles, processedFiles, progress } from './lib/stores';
-  import ProgressBar from "./lib/ProgressBar.svelte";
 
   let zipDataUrl: string;
   let converting = false;
