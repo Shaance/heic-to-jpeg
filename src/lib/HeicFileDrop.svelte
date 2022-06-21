@@ -11,10 +11,12 @@
 
 <style>
   .zone {
-    background-color: #eeeeee;
+    background-color: #676c7b;
     padding: 30px;
-    border: 2px solid #dddddd;
+    border: 2px solid rgb(143, 134, 208);
     margin-bottom: 50px;
+    font-weight: 250;
+    border-radius: 5px;
   }
   .droppable {
     border-color: #1f79ff;

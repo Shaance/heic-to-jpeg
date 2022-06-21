@@ -75,6 +75,9 @@
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
       Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   }
+  :global(body) {
+    background-color: rgb(80, 84, 121);
+  }
 
   main {
     text-align: center;
@@ -83,13 +86,14 @@
   }
 
   h1 {
-    color: #ff3e00;
+    color: #082233;
     text-transform: uppercase;
-    font-size: 3rem;
-    font-weight: 100;
+    font-size: 3.5rem;
+    font-weight: 150;
     line-height: 1.1;
     margin: 2rem auto;
     max-width: 30rem;
+    margin-bottom: 50px;
   }
 
   @media (max-width: 480px) {
