@@ -67,7 +67,6 @@
     <DownloadBtn {zipDataUrl} {zipName}/>
   {:else if converting}
     <Loading />
-    <ProgressBar />
   {/if}
 </main>
 
