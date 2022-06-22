@@ -5,20 +5,20 @@
   export let onClick = () => {};
 </script>
 
-<button class= "tertiary" transition:fade on:click={onClick}>
-  <a href={zipDataUrl} download={zipName}>
-    <p>Download</p>
-  </a>
-</button>
+<a href={zipDataUrl} download={zipName}>
+  <button class="tertiary" transition:fade on:click={onClick}>
+    Download
+  </button>
+</a>
 
 <style>
   button {
-    border: 2px solid rgb(69,64,104);
+    border: 2px solid rgb(69, 64, 104);
     background-color: #373b45;
 
-    font-size: .875rem;
+    font-size: 0.875rem;
     line-height: 1.28572;
-    letter-spacing: .16px;
+    letter-spacing: 0.16px;
     position: relative;
     display: inline-flex;
     max-width: 20rem;
@@ -32,29 +32,25 @@
     outline: none;
     text-align: left;
     text-decoration: none;
-    /* transition: background 70ms cubic-bezier(0, 0, 0.38, 0.9),box-shadow 70ms cubic-bezier(0, 0, 0.38, 0.9),border-color 70ms cubic-bezier(0, 0, 0.38, 0.9),outline 70ms cubic-bezier(0, 0, 0.38, 0.9); */
-    /* vertical-align: top; */
   }
 
-.tertiary {
+  .tertiary {
     min-height: 2rem;
     border-width: 1px;
     border-style: solid;
     border-color: #fff;
-    background-color: rgba(0,0,0,0);
+    background-color: rgba(0, 0, 0, 0);
     color: #fff;
     height: 20px;
     padding: 12px;
-    /* padding-right: 10px; */
-}
+  }
 
   a {
     text-decoration: none;
-    color: #fff;
   }
 
-  p {
-    font-weight: 100;
-    font-size: 13px;
+  button:hover {
+    background-color: white;
+    color: black !important;
   }
 </style>
