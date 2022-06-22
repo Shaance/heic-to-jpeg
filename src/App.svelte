@@ -29,8 +29,6 @@
       progress.set(0);
     }
 
-    console.time("handle1");
-
     var zip = new JSZip();
     const folderName = "converted";
     zip.folder(folderName);
@@ -40,7 +38,6 @@
     converting = true;
     for (const file of files) {
       const newName = changeExtension(file, ".heic", ".jpeg");
-      console.log(newName);
       const converted = (await heic2any({
         blob: file,
         toType: "image/jpeg",
@@ -52,7 +49,6 @@
 
     zip.generateAsync({ type: "base64" }).then((base64) => {
       zipDataUrl = `data:image/zip;base64,` + base64;
-      console.timeEnd("handle1");
       converting = false;
     });
   }
