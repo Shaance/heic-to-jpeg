@@ -4,11 +4,10 @@
   import JSZip from "jszip";
   import DownloadBtn from "./lib/DownloadBtn.svelte";
   import Loading from "./lib/Loading.svelte";
-  import { totalFiles, processedFiles, progress } from "./lib/stores";
+  import { totalFiles, processedFiles, progress, converting } from "./lib/stores";
   import AboutFooter from "./lib/AboutFooter.svelte";
 
   let zipDataUrl: string;
-  let converting = false;
   const zipName = "converted.zip";
 
   function changeExtension(
@@ -36,7 +35,7 @@
 
     processedFiles.set(0);
     totalFiles.set(files.length);
-    converting = true;
+    converting.set(true);
     for (const file of files) {
       const newName = changeExtension(file, ".heic", ".jpeg");
       const converted = (await heic2any({
@@ -50,7 +49,7 @@
 
     zip.generateAsync({ type: "base64" }).then((base64) => {
       zipDataUrl = `data:image/zip;base64,` + base64;
-      converting = false;
+      converting.set(false);
     });
   }
 </script>
@@ -61,7 +60,7 @@
 
   {#if zipDataUrl}
     <DownloadBtn {zipDataUrl} {zipName} />
-  {:else if converting}
+  {:else if $converting}
     <Loading />
   {/if}
 
