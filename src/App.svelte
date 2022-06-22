@@ -4,7 +4,8 @@
   import JSZip from "jszip";
   import DownloadBtn from "./lib/DownloadBtn.svelte";
   import Loading from "./lib/Loading.svelte";
-  import { totalFiles, processedFiles, progress } from './lib/stores';
+  import { totalFiles, processedFiles, progress } from "./lib/stores";
+  import AboutFooter from "./lib/AboutFooter.svelte";
 
   let zipDataUrl: string;
   let converting = false;
@@ -43,7 +44,7 @@
         toType: "image/jpeg",
       })) as Blob;
       zip.file(`${folderName}/${newName}`, converted, { binary: true });
-      processedFiles.update(n => n + 1);
+      processedFiles.update((n) => n + 1);
       progress.set($processedFiles / $totalFiles);
     }
 
@@ -55,14 +56,16 @@
 </script>
 
 <main>
-  <h1> HEIC converter </h1>
+  <h1>HEIC converter</h1>
   <HeicFileDrop {handleFiles} />
 
   {#if zipDataUrl}
-    <DownloadBtn {zipDataUrl} {zipName}/>
+    <DownloadBtn {zipDataUrl} {zipName} />
   {:else if converting}
     <Loading />
   {/if}
+
+  <AboutFooter />
 </main>
 
 <style>
@@ -71,7 +74,7 @@
       Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   }
   :global(body) {
-    background-color: rgb(57,57,57);
+    background-color: rgb(57, 57, 57);
   }
 
   main {
