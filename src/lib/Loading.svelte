@@ -11,10 +11,14 @@
     Converted {$processedFiles} out of {$totalFiles} images..
   </p>
 {:else}
-  <p transition:fade>Zipping your pictures..</p>
+  <p transition:fade class="zipping">Zipping your pictures..</p>
 {/if}
 
 <style>
+  .zipping {
+    color: #d1d0d0;
+    font-weight: 400;
+  }
   .labelText {
     color: #d1d0d0;
     font-weight: 400;
