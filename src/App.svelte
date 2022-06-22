@@ -75,7 +75,7 @@
       Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   }
   :global(body) {
-    background-color: rgb(80, 84, 121);
+    background-color: rgb(57,57,57);
   }
 
   main {
@@ -88,7 +88,7 @@
     color: #082233;
     text-transform: uppercase;
     font-size: 3.5rem;
-    font-weight: 150;
+    font-weight: 100;
     line-height: 1.1;
     margin: 2rem auto;
     max-width: 30rem;
