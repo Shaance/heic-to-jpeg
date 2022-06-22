@@ -8,7 +8,7 @@
   <p transition:fade class="labelText"> Image conversion status</p>
   <ProgressBar />
   <p transition:fade class="helperText">
-    Converted {$processedFiles} out of {$totalFiles} images..
+    {$processedFiles} image(s) out of {$totalFiles}
   </p>
 {:else}
   <p transition:fade class="zipping">Zipping your pictures..</p>
