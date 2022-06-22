@@ -4,7 +4,8 @@
   import JSZip from "jszip";
   import DownloadBtn from "./lib/DownloadBtn.svelte";
   import Loading from "./lib/Loading.svelte";
-  import { totalFiles, processedFiles, progress } from './lib/stores';
+  import { totalFiles, processedFiles, progress } from "./lib/stores";
+  import AboutFooter from "./lib/AboutFooter.svelte";
 
   let zipDataUrl: string;
   let converting = false;
@@ -29,8 +30,6 @@
       progress.set(0);
     }
 
-    console.time("handle1");
-
     var zip = new JSZip();
     const folderName = "converted";
     zip.folder(folderName);
@@ -40,33 +39,33 @@
     converting = true;
     for (const file of files) {
       const newName = changeExtension(file, ".heic", ".jpeg");
-      console.log(newName);
       const converted = (await heic2any({
         blob: file,
         toType: "image/jpeg",
       })) as Blob;
       zip.file(`${folderName}/${newName}`, converted, { binary: true });
-      processedFiles.update(n => n + 1);
+      processedFiles.update((n) => n + 1);
       progress.set($processedFiles / $totalFiles);
     }
 
     zip.generateAsync({ type: "base64" }).then((base64) => {
       zipDataUrl = `data:image/zip;base64,` + base64;
-      console.timeEnd("handle1");
       converting = false;
     });
   }
 </script>
 
 <main>
-  <h1> HEIC converter </h1>
+  <h1>HEIC converter</h1>
   <HeicFileDrop {handleFiles} />
 
   {#if zipDataUrl}
-    <DownloadBtn {zipDataUrl} {zipName}/>
+    <DownloadBtn {zipDataUrl} {zipName} />
   {:else if converting}
     <Loading />
   {/if}
+
+  <AboutFooter />
 </main>
 
 <style>
@@ -75,7 +74,7 @@
       Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   }
   :global(body) {
-    background-color: rgb(80, 84, 121);
+    background-color: rgb(57, 57, 57);
   }
 
   main {
@@ -88,7 +87,7 @@
     color: #082233;
     text-transform: uppercase;
     font-size: 3.5rem;
-    font-weight: 150;
+    font-weight: 100;
     line-height: 1.1;
     margin: 2rem auto;
     max-width: 30rem;

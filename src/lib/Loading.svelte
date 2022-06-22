@@ -5,10 +5,27 @@
 </script>
 
 {#if $processedFiles != $totalFiles}
-  <p transition:fade>
-    Converted {$processedFiles} out of {$totalFiles} images..
-  </p>
+  <p transition:fade class="labelText"> Image conversion status</p>
   <ProgressBar />
+  <p transition:fade class="helperText">
+    {$processedFiles} image(s) out of {$totalFiles}
+  </p>
 {:else}
-  <p transition:fade>Zipping your pictures..</p>
+  <p transition:fade class="zipping">Zipping your pictures..</p>
 {/if}
+
+<style>
+  .zipping {
+    color: #d1d0d0;
+    font-weight: 400;
+  }
+  .labelText {
+    color: #d1d0d0;
+    font-weight: 400;
+  }
+
+  .helperText {
+    color: #9d9c9d;
+    font-size: 12px;
+  }
+</style>
