@@ -25,7 +25,7 @@
     margin-bottom: 50px;
     font-weight: 250;
     border-radius: 5px;
-    color: #808388;
+    color: #898d94;
   }
   .droppable {
     border-color: #1f79ff;
